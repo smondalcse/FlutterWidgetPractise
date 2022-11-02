@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test/models/student.dart';
+import 'package:test/pages/GoogleMapExample.dart';
 import 'package:test/pages/bottom_modal_sheet.dart';
 import 'package:test/pages/bottom_navigation_bar.dart';
 import 'package:test/pages/buttonExample.dart';
@@ -247,6 +248,16 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => BottomModalSheetExample(),
+                        ),
+                      );
+                    }),
+                ElevatedButton(
+                    child: Text("Google Map"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GoogleMapExample(),
                         ),
                       );
                     }),
