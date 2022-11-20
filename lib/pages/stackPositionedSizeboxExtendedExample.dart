@@ -10,14 +10,26 @@ class _StackPositionedSizeboxExtendedExampleState extends State<StackPositionedS
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("StackPositionedSizeboxExtended Example")),
-      body: Column(children: [
-        Text("StackPositionedSizeboxExtended text"),
-        ElevatedButton(
-        child: Text("Back to Dashboard"),
-        onPressed: () { 
-          Navigator.pop(context);
-        })
-      ],),
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: Stack(
+          children: [
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.green,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Container(
+                height: 400,
+                width: 700,
+                color: Colors.orange,
+              ),
+            )
+          ],
+        ),
+      ),
       );
   }
 }

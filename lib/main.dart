@@ -11,10 +11,12 @@ import 'package:test/pages/iconImageListviewExample.dart';
 import 'package:test/pages/list_tile.dart';
 import 'package:test/pages/listview.dart';
 import 'package:test/pages/listview_ListTile_Listviewbuilder_Divider.dart';
+import 'package:test/pages/navigation_drawer.dart';
 import 'package:test/pages/params.dart';
 import 'package:test/pages/params_model.dart';
 import 'package:test/pages/rowColumnExample.dart';
 import 'package:test/pages/scrollview.dart';
+import 'package:test/pages/shared_preference_example.dart';
 import 'package:test/pages/stackPositionedSizeboxExtendedExample.dart';
 import 'package:test/pages/textExample.dart';
 import 'package:test/pages/text_field.dart';
@@ -206,41 +208,67 @@ class _DashboardState extends State<Dashboard> {
                           builder: (context) => ToastExample());
                       Navigator.push(context, route);
                     }),
-                ElevatedButton(
-                    child: Text("Params Example"),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ParamsExample(
-                                  "Sanat",
-                                  "20170546",
-                                  "cse.sanat@gmail.com",
-                                  "01712995265")));
-                    }),
-                ElevatedButton(
-                    child: Text("Model Pass Example"),
-                    onPressed: () {
-                      Student objStudent = Student(
-                          "Sanat Mondal", "20170546", "Dhaka", "0171222222");
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ModelParams(student: objStudent),
-                        ),
-                      );
-                    }),
-                ElevatedButton(
-                    child: Text("Bottom Navigation Bar"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BottomNavigationBarExample(),
-                        ),
-                      );
-                    }),
+                SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                          child: Text("Params Example"),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ParamsExample(
+                                        "Sanat",
+                                        "20170546",
+                                        "cse.sanat@gmail.com",
+                                        "01712995265")));
+                          }),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      ElevatedButton(
+                          child: Text("Model Pass Example"),
+                          onPressed: () {
+                            Student objStudent = Student("Sanat Mondal",
+                                "20170546", "Dhaka", "0171222222");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    ModelParams(student: objStudent),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                          child: Text("Bottom Navigation Bar"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    BottomNavigationBarExample(),
+                              ),
+                            );
+                          }),
+                      ElevatedButton(
+                          child: Text("Navigation Drawer"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NavigationDrawerExample(),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
                 ElevatedButton(
                     child: Text("Bottom Modal Sheet"),
                     onPressed: () {
@@ -258,6 +286,16 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => GoogleMapExample(),
+                        ),
+                      );
+                    }),
+                ElevatedButton(
+                    child: Text("Shared Preference"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SharedPreferenceExample(),
                         ),
                       );
                     }),
