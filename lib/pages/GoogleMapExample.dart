@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,6 +18,8 @@ class _GoogleMapExampleState extends State<GoogleMapExample> {
   Map<String, Marker> _markers = {};
   LocationData? currentLocation;
 
+  BitmapDescriptor customeMarkerIcon = BitmapDescriptor.defaultMarker;
+
   // static const LatLng currentLocation1 =
   //     LatLng(23.776847382866453, 90.39481629986943);
   static const LatLng source = LatLng(23.773717420031076, 90.39006859089616);
@@ -26,8 +27,8 @@ class _GoogleMapExampleState extends State<GoogleMapExample> {
   LatLng(23.777247555332163, 90.39828337681699);
   List<LatLng> polylineCoordinates = [];
 
-  var markerIcon = BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(), 'images/marker.png');
+  // var markerIcon = BitmapDescriptor.fromAssetImage(
+  //     ImageConfiguration(), 'images/marker.png');
 
   getCurrentLocation() async {
     Location location = Location();
@@ -82,10 +83,15 @@ class _GoogleMapExampleState extends State<GoogleMapExample> {
     polylineCoordinates.add(LatLng(23.777247555332163, 90.39828337681699));
   }
 
+  getCustomMarkerIcon(){
+    BitmapDescriptor.fromAssetImage(ImageConfiguration(), 'images/marker.png').then((icon) => customeMarkerIcon = icon);
+  }
+
   @override
   void initState() {
     getPolyPoints();
     getCurrentLocation();
+    getCustomMarkerIcon();
     super.initState();
   }
 
@@ -122,17 +128,20 @@ class _GoogleMapExampleState extends State<GoogleMapExample> {
             Marker(
                 markerId: MarkerId('Source'),
                 position: source,
+                icon: customeMarkerIcon,
                 infoWindow: InfoWindow(
                     title: 'Marker Source',
                     snippet: 'Source description')),
             Marker(
                 markerId: MarkerId('Destination'),
                 position: destination,
+                icon: customeMarkerIcon,
                 infoWindow: InfoWindow(
                     title: 'Destination',
                     snippet: 'Destination description')),
             Marker(
                 markerId: MarkerId('DeviceLocation'),
+                icon: customeMarkerIcon,
                 position: LatLng(currentLocation!.latitude!,
                     currentLocation!.longitude!),
                 infoWindow: InfoWindow(
