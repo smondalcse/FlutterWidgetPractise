@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test/models/student.dart';
+import 'package:test/pages/AlertDialogExample.dart';
 import 'package:test/pages/GoogleMapExample.dart';
+import 'package:test/pages/ListViewFilterSearchExample.dart';
 import 'package:test/pages/bottom_modal_sheet.dart';
 import 'package:test/pages/bottom_navigation_bar.dart';
 import 'package:test/pages/buttonExample.dart';
@@ -256,6 +258,9 @@ class _DashboardState extends State<Dashboard> {
                               ),
                             );
                           }),
+                      SizedBox(
+                        width: 5,
+                      ),
                       ElevatedButton(
                           child: Text("Navigation Drawer"),
                           onPressed: () {
@@ -269,36 +274,84 @@ class _DashboardState extends State<Dashboard> {
                     ],
                   ),
                 ),
-                ElevatedButton(
-                    child: Text("Bottom Modal Sheet"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BottomModalSheetExample(),
-                        ),
-                      );
-                    }),
-                ElevatedButton(
-                    child: Text("Google Map"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GoogleMapExample(),
-                        ),
-                      );
-                    }),
-                ElevatedButton(
-                    child: Text("Shared Preference"),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SharedPreferenceExample(),
-                        ),
-                      );
-                    }),
+                SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                          child: Text("Bottom Modal Sheet"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BottomModalSheetExample(),
+                              ),
+                            );
+                          }),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      ElevatedButton(
+                          child: Text("Google Map"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => GoogleMapExample(),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                          child: Text("Shared Preference"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SharedPreferenceExample(),
+                              ),
+                            );
+                          }),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      ElevatedButton(
+                          child: Text("Alert Box"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AlertDialogExample(),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                          child: Text("Search & Filter ListView"),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ListViewFilterSearchExample(),
+                              ),
+                            );
+                          }),
+                      SizedBox(
+                        width: 5,
+                      ),
+
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
